@@ -8,9 +8,9 @@ from flask import send_file
 
 app = Flask(__name__)
 
-@app.route('/photo/<path:path>', methods=['GET'])
+@app.route('/<path:path>', methods=['GET'])
 def screenshots(path):
-    response = requests.get('##### BUCKET URL #####' + path)
+    response = requests.get('https://<URL корзины DigitalOcean>/' + path)
     if response.status_code >= 500:
         print('#######################')
         print('CLIENT REQUEST HEADERS:')
