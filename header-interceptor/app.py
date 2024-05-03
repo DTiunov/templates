@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/photo/<path:path>', methods=['GET'])
 def screenshots(path):
     response = requests.get('##### BUCKET URL #####' + path)
-    if response.status_code >= 200:
+    if response.status_code >= 500:
         print('#######################')
         print('CLIENT REQUEST HEADERS:')
         print(request.headers)
