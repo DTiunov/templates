@@ -10,9 +10,15 @@ app = Flask(__name__)
 
 @app.route('/<path:path>', methods=['GET'])
 def screenshots(path):
-    response = requests.get('https://<URL корзины DigitalOcean>/' + path)
+    try:
+        response = requests.get('https://<URL корзины DigitalOcean>/' + path)
+    except:
+        print('\n#######################')
+        print('CLIENT REQUEST HEADERS:')
+        print(request.headers)
+        return Response(status=520)
     if response.status_code >= 500:
-        print('#######################')
+        print('\n#######################')
         print('CLIENT REQUEST HEADERS:')
         print(request.headers)
         print('DIGITAL OCEAN RESPONSE HEADERS:')
