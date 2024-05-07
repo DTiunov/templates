@@ -11,4 +11,5 @@ RUN pip install --upgrade pip \
 # Copying project
 COPY . .
 
-CMD ["python", "app.py"]
+# Start application with unbuffered options
+CMD ["python", "-u", "app.py"]
